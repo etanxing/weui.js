@@ -73,7 +73,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _loading2 = _interopRequireDefault(_loading);
 
-	var _form = __webpack_require__(9);
+	var _tab = __webpack_require__(9);
+
+	var _tab2 = _interopRequireDefault(_tab);
+
+	var _form = __webpack_require__(10);
 
 	var _form2 = _interopRequireDefault(_form);
 
@@ -84,27 +88,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// import gallery from './gallery/gallery';
 	// import slider from './slider/slider';
 
-	exports.default = {
-	    // dialog,
-	    // alert,
-	    // confirm,
-	    toast: _toast2.default,
-	    loading: _loading2.default,
-	    // actionSheet,
-	    // topTips,
-	    // searchBar,
-	    // tab,
-	    form: _form2.default
-	    // uploader,
-	    // picker,
-	    // datePicker,
-	    // gallery,
-	    // slider
-	};
 	// import actionSheet from './actionSheet/actionSheet';
 	// import topTips from './topTips/topTips';
 	// import searchBar from './searchBar/searchBar';
-	// import tab from './tab/tab';
 	/*
 	* Tencent is pleased to support the open source community by making WeUI.js available.
 	*
@@ -124,7 +110,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	// import dialog from './dialog/dialog';
 	// import alert from './alert/alert';
 	// import confirm from './confirm/confirm';
-
+	exports.default = {
+	    // dialog,
+	    // alert,
+	    // confirm,
+	    toast: _toast2.default,
+	    loading: _loading2.default,
+	    // actionSheet,
+	    // topTips,
+	    // searchBar,
+	    tab: _tab2.default,
+	    form: _form2.default
+	    // uploader,
+	    // picker,
+	    // datePicker,
+	    // gallery,
+	    // slider
+	};
 	module.exports = exports['default'];
 
 /***/ }),
@@ -898,7 +900,89 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _util2 = _interopRequireDefault(_util);
 
-	var _topTips = __webpack_require__(10);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * tab tab导航栏
+	 * @param {string} selector tab的selector
+	 * @param {object=} options 配置项
+	 * @param {number=} [options.defaultIndex=0] 初始展示的index
+	 * @param {function=} options.onChange 点击tab时，返回对应的index
+	 *
+	 * @example
+	 * weui.tab('#tab',{
+	 *     defaultIndex: 0,
+	 *     onChange: function(index){
+	 *         console.log(index);
+	 *     }
+	 * });
+	 */
+	function tab(selector) {
+	    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+	    var $eles = (0, _util2.default)(selector);
+	    options = _util2.default.extend({
+	        defaultIndex: 0,
+	        onChange: _util2.default.noop
+	    }, options);
+
+	    $eles.forEach(function (ele) {
+	        var $tab = (0, _util2.default)(ele);
+	        var $tabItems = $tab.find('.weui-navbar__item, .weui-tabbar__item');
+	        var $tabContents = $tab.find('.weui-tab__content');
+
+	        $tabItems.eq(options.defaultIndex).addClass('weui-bar__item_on');
+	        $tabContents.eq(options.defaultIndex).show();
+
+	        $tabItems.on('click', function () {
+	            var $this = (0, _util2.default)(this),
+	                index = $this.index();
+
+	            $tabItems.removeClass('weui-bar__item_on');
+	            $this.addClass('weui-bar__item_on');
+
+	            $tabContents.hide();
+	            $tabContents.eq(index).show();
+
+	            options.onChange.call(this, index);
+	        });
+	    });
+
+	    return this;
+	} /*
+	  * Tencent is pleased to support the open source community by making WeUI.js available.
+	  * 
+	  * Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
+	  * 
+	  * Licensed under the MIT License (the "License"); you may not use this file except in compliance
+	  * with the License. You may obtain a copy of the License at
+	  * 
+	  *       http://opensource.org/licenses/MIT
+	  * 
+	  * Unless required by applicable law or agreed to in writing, software distributed under the License is
+	  * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+	  * either express or implied. See the License for the specific language governing permissions and
+	  * limitations under the License.
+	  */
+
+	exports.default = tab;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _util = __webpack_require__(2);
+
+	var _util2 = _interopRequireDefault(_util);
+
+	var _topTips = __webpack_require__(11);
 
 	var _topTips2 = _interopRequireDefault(_topTips);
 
@@ -1144,7 +1228,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1157,7 +1241,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _util2 = _interopRequireDefault(_util);
 
-	var _topTips = __webpack_require__(11);
+	var _topTips = __webpack_require__(12);
 
 	var _topTips2 = _interopRequireDefault(_topTips);
 
@@ -1258,7 +1342,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 	module.exports = "<div class=\"weui-toptips weui-toptips_warn <%= className %>\" style=display:block><%= content %></div> ";

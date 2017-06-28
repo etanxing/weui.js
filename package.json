@@ -22,6 +22,7 @@
   "author": "wechat ui team",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.16.2",
     "balajs": "^0.1.9",
     "element-closest": "^2.0.1",
     "object-assign": "^4.1.0"
