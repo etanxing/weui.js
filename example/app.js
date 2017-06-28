@@ -86,7 +86,7 @@ function get(id) {
 	return document.getElementById(id)
 }
 
-axios.get('http://47.93.50.34:3000/api/getconfig')
+axios.get('http://47.93.50.34:3000/api/getconfig?url=' + location.href.split('#')[0])
 	.then(function(response) {
 		var data = response.data;
 		data.debug = true

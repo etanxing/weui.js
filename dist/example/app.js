@@ -147,7 +147,7 @@
 		return document.getElementById(id);
 	}
 
-	_axios2.default.get('http://47.93.50.34:3000/api/getconfig').then(function (response) {
+	_axios2.default.get('http://47.93.50.34:3000/api/getconfig?url=' + location.href.split('#')[0]).then(function (response) {
 		var data = response.data;
 		data.debug = true;
 		data.jsApiList = ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone'];
