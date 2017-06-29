@@ -1,262 +1,200 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <title>澳洲技术移民在线评估(2017版)</title>
     <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.0/weui.min.css">
     <style>
-      html,
-      body {
-      height: 100%;
-      background-color: #f8f8f8;
-      }
-      body {
-      font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-      font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
-      color: #000;
-      }
-      h2 {
-      font-size: 1.3rem;
-      font-weight: 400;
-      text-align: center;
-      padding-top: 2rem;
-      }
-      #home p {
-      font-weight: 100;
-      text-align: center;
-      color: #888;
-      font-size: 0.9rem;
-      padding-bottom: 2rem;
-      }
-      img {
-      vertical-align: sub;
-      }
-      .item {
-      padding: 10px 0;
-      }
-      .item__title {
-      margin-bottom: 5px;
-      padding-left: 15px;
-      padding-right: 15px;
-      color: #999;
-      font-weight: normal;
-      font-size: 14px;
-      }
-      .item__ctn {
-      padding: 0 15px;
-      }
-      .page_feedback {
-      padding: 15px;
-      overflow: auto;
-      background-color: #FFFFFF;
-      }
-      /*fix fastclick很难点中的bug*/
-      label>* {
-      pointer-events: none;
-      }
-      /* weui需要fix的 */
-      .weui-picker__item {
-      padding: 0;
-      height: 34px;
-      line-height: 34px;
-      }
-      .weui_cells_tips {
-      margin-top: .3em;
-      color: #888;
-      padding-left: 15px;
-      padding-right: 15px;
-      font-size: 14px;
-      }
-      .weui-footer {
-      margin-top: 4rem;
-      }
+        html,
+        body {
+            height: 100%;
+            background-color: #f8f8f8;
+        }
 
-      .hidden {
-        display: none;
-      }
+        body {
+            font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: PingFang SC, Verdana, Helvetica Neue, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;
+            color: #000;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            text-align: center;
+            padding-top: 2rem;
+        }
+
+        #home,
+        #jobs-page p {
+            font-weight: 100;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+            padding-bottom: 2rem;
+        }
+
+        #jobs-page ul {
+            font-weight: 100;
+            color: #888;
+            font-size: 0.9rem;
+            padding-top: 1rem;
+            text-align: center;
+        }
+
+        #jobs-page section {
+            margin: 0 15px;
+            padding-top: 1rem;
+        }
+
+        #jobs-page section p {
+            text-align: left;
+            border-left: 4px solid #b2b2b2;
+            padding-bottom: 0;
+            padding-left: 0.5rem;
+        }
+
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            quotes: "\201C""\201D""\2018""\2019";
+            position: relative;
+        }
+
+        blockquote:before {
+            color: #ccc;
+            content: open-quote;
+            font-size: 4em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            vertical-align: -0.4em;
+        }
+
+        blockquote:after {
+            color: #ccc;
+            content: "\201D";
+            font-size: 5em;
+            position: absolute;
+            right: 3px;
+            bottom: 0em;
+            line-height: 0.1em;
+        }
+
+        blockquote p {
+            display: inline;
+        }
+
+        blockquote p span {
+            font-size: 0.7rem;
+        }
+
+
+        blockquote p strong {
+          font-size: 1.2rem;
+        }
+
+        img {
+            vertical-align: sub;
+        }
+
+        .item {
+            padding: 10px 0;
+        }
+
+        .item__title {
+            margin-bottom: 5px;
+            padding-left: 15px;
+            padding-right: 15px;
+            color: #999;
+            font-weight: normal;
+            font-size: 14px;
+        }
+
+        .item__ctn {
+            padding: 0 15px;
+        }
+
+        .page_feedback {
+            padding: 15px;
+            overflow: auto;
+            background-color: #FFFFFF;
+        }
+        /*fix fastclick很难点中的bug*/
+
+        label>* {
+            pointer-events: none;
+        }
+        /* weui需要fix的 */
+
+        .weui-picker__item {
+            padding: 0;
+            height: 34px;
+            line-height: 34px;
+        }
+
+        .weui_cells_tips {
+            margin-top: .3em;
+            color: #888;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-size: 14px;
+        }
+
+        .weui-footer {
+            margin-top: 4rem;
+        }
+
+        .hidden {
+            display: none;
+        }
     </style>
-  </head>
-  <body ontouchstart>
-    <h2>澳洲技术移民在线评估(2017版)</h2>
-    <div id="home">
-      <p>过了呢？多一个选择；没过呢？反正也没打算去<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4MTZkMDAyZS1iOWY0LTQ4YzMtOTJlNi03Y2EzYzE2OThjM2YiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RThDQUI4NzA3QkRDMTFFNkFEM0JGRTY1RDE5NUU2NTAiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RThDQUI4NkY3QkRDMTFFNkFEM0JGRTY1RDE5NUU2NTAiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MTZkMDAyZS1iOWY0LTQ4YzMtOTJlNi03Y2EzYzE2OThjM2YiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6ODE2ZDAwMmUtYjlmNC00OGMzLTkyZTYtN2NhM2MxNjk4YzNm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"></p>
-      <div id="form">
-        <div class="weui-cells__title">英语水平</div>
-        <div class="weui-cells">
-          <div class="weui-cell weui-cell_select weui-cell_select-after">
-            <div class="weui-cell__bd">
-              <select class="weui-select" id="english">
-                <option value="0">一般（雅思6分）</option>
-                <option value="10">牛X（雅思7分）</option>
-                <option value="20">母语水平（雅思8分）</option>
-              </select>
+</head>
+
+<body ontouchstart>
+    <h2>澳洲担保工作查询</h2>
+    <div id="jobs-page">
+        <div id="form">
+            <div class="weui-cells">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">关键字</label></div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" type="text" placeholder="目前仅支持英文关键字匹配" required value="javascript">
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="weui-btn-area">
+                <a id="formSubmitBtn" href="javascript:" class="weui-btn weui-btn_primary">马上搜索</a>
+            </div>
         </div>
-        <div class="weui-cells__title">年龄</div>
-        <div class="weui-cells">
-          <div class="weui-cell weui-cell_select weui-cell_select-after">
-            <div class="weui-cell__bd">
-              <select class="weui-select" id="age">
-                <option value="25">18-24 岁</option>
-                <option value="30">25-32 岁</option>
-                <option value="25">33-39 岁</option>
-                <option value="15">40-44 岁</option>
-                <option value="0">小于 18 或大于 44 岁</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="weui-cells__title">工作经验</div>
-        <div class="weui-cells">
-          <div class="weui-cell weui-cell_select weui-cell_select-after">
-            <div class="weui-cell__bd">
-              <select class="weui-select" id="work">
-                <option value="0">最近10年中累计少于3年</option>
-                <option value="5">最近10年中累计3-4年</option>
-                <option value="10">最近10年中累计5-7年</option>
-                <option value="15">4最近10年中累计8-10年</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="weui-cells__title">澳洲工作经验</div>
-        <div class="weui-cells">
-          <div class="weui-cell weui-cell_select weui-cell_select-after">
-            <div class="weui-cell__bd">
-              <select class="weui-select" id="workAu">
-                <option value="0">最近10年中累计少于1年</option>
-                <option value="5">最近10年中累计1-2年</option>
-                <option value="10">最近10年中累计3-4年</option>
-                <option value="15">最近10年中累计5-7年</option>
-                <option value="20">4最近10年中累计8-10年</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="weui-cells__title">教育学历</div>
-        <div class="weui-cells">
-          <div class="weui-cell weui-cell_select weui-cell_select-after">
-            <div class="weui-cell__bd">
-              <select class="weui-select" id="edu">
-                <option value="15">学士或研究生</option>
-                <option value="20">博士</option>
-                <option value="10">澳洲文凭或技术合格证书</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="weui-cells__title">其它</div>
-        <div class="weui-cells weui-cells_checkbox">
-          <label class="weui-cell weui-check__label" for="c1">
-            <div class="weui-cell__hd">
-              <input type="checkbox" class="weui-check" name="others" id="c1">
-              <i class="weui-icon-checked"></i>
-            </div>
-            <div class="weui-cell__bd">配偶也从事技术性职业切英语一般</div>
-          </label>
-          <label class="weui-cell weui-check__label" for="c2">
-            <div class="weui-cell__hd">
-              <input type="checkbox" name="others" class="weui-check" id="c2">
-              <i class="weui-icon-checked"></i>
-            </div>
-            <div class="weui-cell__bd">社区语言（通过NAATI考试认证）</div>
-          </label>
-          <label class="weui-cell weui-check__label" for="c3">
-            <div class="weui-cell__hd">
-              <input type="checkbox" name="others" class="weui-check" id="c3">
-              <i class="weui-icon-checked"></i>
-            </div>
-            <div class="weui-cell__bd">在澳洲偏远地区学校和生活</div>
-          </label>
-          <label class="weui-cell weui-check__label" for="c4">
-            <div class="weui-cell__hd">
-              <input type="checkbox" name="others" class="weui-check" id="c4">
-              <i class="weui-icon-checked"></i>
-            </div>
-            <div class="weui-cell__bd">澳洲职业年</div>
-          </label>
-        </div>
-        <div class="weui-cells weui-cells_form">
-          <div class="weui-cell weui-cell_switch">
-            <div class="weui-cell__bd">获得至少一个澳洲学校文凭</div>
-            <div class="weui-cell__ft">
-              <input class="weui-switch" type="checkbox" id="auExp">
-            </div>
-          </div>
-          <div class="weui-cell weui-cell_switch">
-            <div class="weui-cell__bd">澳洲紧缺教育学历</div>
-            <div class="weui-cell__ft">
-              <input class="weui-switch" type="checkbox" id="auExpSp">
-            </div>
-          </div>
-        </div>
-        <div class="weui_cells_tips">不确定的选项跳过即可</div>
-        <div class="weui-btn-area">
-          <a id="formSubmitBtn" href="javascript:" class="weui-btn weui-btn_primary">马上评估</a>
-        </div>
-      </div>
-    </div>
-    <div id="result" class="hidden">
-      <div class="weui-msg">
-          <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
-          <div class="weui-msg__text-area">
-              <h2 class="weui-msg__title main-title"></h2>
-              <p class="weui-msg__desc"></p>
-          </div>
-          <div class="weui-panel hidden">
-              <div class="weui-panel__hd">MARN 0960323</div>
-              <div class="weui-panel__bd">
-                  <div class="weui-media-box weui-media-box_text">
-                      <h4 class="weui-media-box__title">贾少华 / 微信号 OZSIMONJIA</h4>
-                      <p class="weui-media-box__desc">沈阳籍，移民协会（MIA）成员。经验丰富，工作负责，熟悉澳洲移民法律，擅长技术移民类别，父母移民类别， 境内外婚姻类别， 雇主担保类别， 家庭团聚类别， MRT 上诉等， 积累了大量的办案经验。</p>
-                      <ul class="weui-media-box__info">
-                          <li class="weui-media-box__info__meta">技术移民</li>
-                          <li class="weui-media-box__info__meta">父母移民</li>
-                          <li class="weui-media-box__info__meta">雇主担保</li>
-                          <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">墨尔本</li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-          <div class="weui-panel hidden">
-              <div class="weui-panel__hd">MARN 1173700</div>
-              <div class="weui-panel__bd">
-                  <div class="weui-media-box weui-media-box_text">
-                      <h4 class="weui-media-box__title">罗蕾 / 微信号 LITTLELL</h4>
-                      <p class="weui-media-box__desc">北京籍，悉尼定居10年。NAATI双向三级翻译。JP太平绅士。从客户角度出发，为客户争取最大利益，经手大量成功案例。对工作认证负责。擅长雇主担保类签证，各类工作签证，MRT上诉，以及境内外婚姻及家庭团聚类签证。</p>
-                      <ul class="weui-media-box__info">
-                          <li class="weui-media-box__info__meta">雇主担保</li>
-                          <li class="weui-media-box__info__meta">工作签证</li>
-                          <li class="weui-media-box__info__meta">MRT上诉</li>
-                          <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">悉尼</li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-          <div class="weui-msg__opr-area">
-              <p class="weui-btn-area">
-                <a href="jobs.html" class="weui-btn weui-btn_primary" id="prefix"></a>
-                  <a href="javascript:" class="weui-btn weui-btn_default" id="goBack">重新评估</a>
-              </p>
-          </div>
-      </div>
+        <ul>
+            <li>雇主承诺提供工作担保签证</li>
+            <li>保证担保签证最低薪资</li>
+            <li>一人成行全家移民</li>
+        </ul>
+        <blockquote>
+            <p>目前法律规定工作签证的最低年薪是<strong>$53,900</strong> (约 <strong>28万</strong>人民币)<br>
+            <span>来自 <a href="http://www.smh.com.au/business/workplace-relations/minimum-wage-for-temporary-visa-holders-falls-behind-inflation-20170425-gvrs0c.html">The Sydney Morning Herald</a></span></p>
+        </blockquote>
     </div>
     <div class="weui-footer">
         <p class="weui-footer__links">
             <a href="mailto:william@workswell.com.au?subject=澳洲移民合作" class="weui-footer__link">合作联系</a>
         </p>
-              <img width="100" src="data:image/png;base64,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">
+        <img width="100" src="data:image/png;base64,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">
         <p class="weui-footer__text">Copyright © 2017-2017 Workswell Australia</p>
     </div>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript"></script>
-  </body>
+</body>
+
 </html>
