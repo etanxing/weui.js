@@ -65,78 +65,83 @@
 	_fastclick2.default.attach(document.body); // import 'weui';
 
 
-	var maximum = 2,
-	    minimum = 1,
-	    $agents = (0, _util2.default)('.weui-panel'),
-	    randomnumber;
-	// /* tab */
-	// weui.tab('#tab',{
-	//     defaultIndex: 0
-	// });
-	// 表单提交
-	get('formSubmitBtn').addEventListener('click', function () {
-		//Get answers
-		var items = ['english', 'age', 'work', 'workAu', 'edu', 'c1', 'c2', 'c3', 'c4', 'auExp', 'auExpSp'],
-		    score = items.map(gv).reduce(ac, 0),
-		    home = get('home'),
-		    $prefix = (0, _util2.default)('#prefix'),
-		    result = get('result'),
-		    $result = (0, _util2.default)('#result'),
-		    responses = [{
-			title: '恭喜！您符合澳洲技术移民资格',
-			subtitle: '想进一步了解，请联系下面的澳洲注册移民代理 <a href="https://www.mara.gov.au/">(Migration Agents Registration Authority)</a>',
-			msg: 'weui-icon-success',
-			noMsg: ['weui-icon-warn', 'weui-icon-info'],
-			prefix: '还有惊喜？'
-		}, {
-			title: '您的条件接近澳洲技术移民资格',
-			subtitle: '想进一步了解，请联系下面的澳洲注册移民代理 <a href="https://www.mara.gov.au/">(Migration Agents Registration Authority)</a>',
-			msg: 'weui-icon-info',
-			noMsg: ['weui-icon-success', 'weui-icon-warn'],
-			prefix: '有惊喜？'
-		}, {
-			title: '您目前的条件不符合澳洲技术移民资格',
-			subtitle: '澳大利亚有多种家庭亲属移民签证，可以尝试让您的亲属进行评估（右上角分享）',
-			msg: 'weui-icon-warn',
-			noMsg: ['weui-icon-success', 'weui-icon-info'],
-			prefix: '不过，有惊喜!'
-		}],
-		    response = score >= 60 ? responses[0] : score == 55 ? responses[1] : responses[2];
-		randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+	if (!get('jobs-page')) {
+	  var maximum = 2,
+	      minimum = 1,
+	      $agents = (0, _util2.default)('.weui-panel'),
+	      randomnumber;
+	  // /* tab */
+	  // weui.tab('#tab',{
+	  //     defaultIndex: 0
+	  // });
+	  // 表单提交
+	  get('formSubmitBtn').addEventListener('click', function () {
+	    //Get answers
+	    var items = ['english', 'age', 'work', 'workAu', 'edu', 'c1', 'c2', 'c3', 'c4', 'auExp', 'auExpSp'],
+	        score = items.map(gv).reduce(ac, 0),
+	        home = get('home'),
+	        $prefix = (0, _util2.default)('#prefix'),
+	        result = get('result'),
+	        $result = (0, _util2.default)('#result'),
+	        responses = [{
+	      title: '恭喜！您符合澳洲技术移民资格',
+	      subtitle: '想进一步了解，请联系下面的澳洲注册移民代理 <a href="https://www.mara.gov.au/">(Migration Agents Registration Authority)</a>',
+	      msg: 'weui-icon-success',
+	      noMsg: ['weui-icon-warn', 'weui-icon-info'],
+	      prefix: '还有惊喜？'
+	    }, {
+	      title: '您的条件接近澳洲技术移民资格',
+	      subtitle: '想进一步了解，请联系下面的澳洲注册移民代理 <a href="https://www.mara.gov.au/">(Migration Agents Registration Authority)</a>',
+	      msg: 'weui-icon-info',
+	      noMsg: ['weui-icon-success', 'weui-icon-warn'],
+	      prefix: '有惊喜？'
+	    }, {
+	      title: '您目前的条件不符合澳洲技术移民资格',
+	      subtitle: '澳大利亚有多种家庭亲属移民签证，可以尝试让您的亲属进行评估（右上角分享）',
+	      msg: 'weui-icon-warn',
+	      noMsg: ['weui-icon-success', 'weui-icon-info'],
+	      prefix: '不过，有惊喜!'
+	    }],
+	        response = score >= 60 ? responses[0] : score == 55 ? responses[1] : responses[2];
+	    randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
 
-		var loading = _weui2.default.loading('提交中...');
+	    var loading = _weui2.default.loading('提交中...');
 
-		setTimeout(function () {
-			//window.location.href = 'https://mp.weixin.qq.com/s?__biz=MzA4Nzk5NDAzNg==&tempkey=I4opQsuNrD8nfyJDtYpxMt07w%2Fkuga0ws%2BwBu7gGfPsMwZUTL1lnq1Lzv2nsS86fBP%2BHVheF7wCezfjsajbfBcoqJgCsWfKtHG84py62Mj9SzvzogPprZlqqs0JqBRwU%2B7AZOohs5AZ1LwFPypxF0Q%3D%3D&chksm=07e614f130919de7a789b83298f30a2537a1e21e73dfda71d1ff10f92b46ebfcec5f0fe2c0bb&scene=0&previewkey=zRCwLzVrSsUq7DZ8Ks4IncNS9bJajjJKzz%252F0By7ITJA%253D&key=f17d8322b1674f1f5252ceb131fc515ad43c76cbd49c3c46e56897e896887a9b95751fe3cbdb41948cda2e7f1ce71a9a46d3ef238b48a8e36446915768260cb8da820b11d0f145a0ea6d4f939c693c36&ascene=0&uin=MTc4MDg5ODMwMA%3D%3D&devicetype=iMac+MacBookPro11%2C4+OSX+OSX+10.12.5+build(16F73)&version=12020810&nettype=WIFI&fontScale=100&pass_ticket=LkX5Ze7trflFuUhBgzDO%2FdrKDxGvWoWfgJdcFeY8pPbOPoj%2FVnaio%2BWUNhmD9Ubz';
-			loading.hide();
-			_weui2.default.toast('提交成功', 500);
-			result.classList.remove('hidden');
-			home.classList.add('hidden');
-			document.title = response.title + '| 澳洲技术移民在线评估(2017版)';
-			$prefix.html(response.prefix);
-			window.scroll(0, 0);
+	    setTimeout(function () {
+	      //window.location.href = 'https://mp.weixin.qq.com/s?__biz=MzA4Nzk5NDAzNg==&tempkey=I4opQsuNrD8nfyJDtYpxMt07w%2Fkuga0ws%2BwBu7gGfPsMwZUTL1lnq1Lzv2nsS86fBP%2BHVheF7wCezfjsajbfBcoqJgCsWfKtHG84py62Mj9SzvzogPprZlqqs0JqBRwU%2B7AZOohs5AZ1LwFPypxF0Q%3D%3D&chksm=07e614f130919de7a789b83298f30a2537a1e21e73dfda71d1ff10f92b46ebfcec5f0fe2c0bb&scene=0&previewkey=zRCwLzVrSsUq7DZ8Ks4IncNS9bJajjJKzz%252F0By7ITJA%253D&key=f17d8322b1674f1f5252ceb131fc515ad43c76cbd49c3c46e56897e896887a9b95751fe3cbdb41948cda2e7f1ce71a9a46d3ef238b48a8e36446915768260cb8da820b11d0f145a0ea6d4f939c693c36&ascene=0&uin=MTc4MDg5ODMwMA%3D%3D&devicetype=iMac+MacBookPro11%2C4+OSX+OSX+10.12.5+build(16F73)&version=12020810&nettype=WIFI&fontScale=100&pass_ticket=LkX5Ze7trflFuUhBgzDO%2FdrKDxGvWoWfgJdcFeY8pPbOPoj%2FVnaio%2BWUNhmD9Ubz';
+	      loading.hide();
+	      _weui2.default.toast('提交成功', 500);
+	      result.classList.remove('hidden');
+	      home.classList.add('hidden');
+	      document.title = response.title + '| 澳洲技术移民在线评估(2017版)';
+	      $prefix.html(response.prefix);
+	      window.scroll(0, 0);
 
-			$result.find('.main-title').html(response.title);
-			var item = $result.find('.weui-icon_msg').addClass(response.msg);
-			response.noMsg.forEach(function (cn) {
-				item.removeClass(cn);
-			});
+	      $result.find('.main-title').html(response.title);
+	      var item = $result.find('.weui-icon_msg').addClass(response.msg);
+	      response.noMsg.forEach(function (cn) {
+	        item.removeClass(cn);
+	      });
 
-			$result.find('.weui-msg__desc').html(response.subtitle);
+	      $result.find('.weui-msg__desc').html(response.subtitle);
 
-			if (score >= 55) {
-				$agents.eq(randomnumber - 1).removeClass('hidden');
-			}
-		}, 500);
-	});
+	      if (score >= 55) {
+	        $agents.eq(randomnumber - 1).removeClass('hidden');
+	      }
+	    }, 500);
+	  });
 
-	get('goBack').addEventListener('click', function () {
-		result.classList.add('hidden');
-		home.classList.remove('hidden');
-		document.title = '澳洲技术移民在线评估(2017版)';
-		$agents.eq(randomnumber - 1).addClass('hidden');
-		window.scroll(0, 0);
-	});
+	  get('goBack').addEventListener('click', function () {
+	    result.classList.add('hidden');
+	    home.classList.remove('hidden');
+	    document.title = '澳洲技术移民在线评估(2017版)';
+	    $agents.eq(randomnumber - 1).addClass('hidden');
+	    window.scroll(0, 0);
+	  });
+	} else {}
+	/* searchBar */
+	//weui.searchBar('#searchBar');
+
 
 	// get('share').addEventListener('click', function() {
 	//   console.log('share clicked')
@@ -154,17 +159,17 @@
 	// })
 
 	function gv(id) {
-		var el = get(id);
-		return el.tagName == 'SELECT' ? el.value : el.checked;
+	  var el = get(id);
+	  return el.tagName == 'SELECT' ? el.value : el.checked;
 	}
 
 	function ac(acc, val) {
-		val = val === true ? 5 : val === false ? 0 : +val;
-		return acc + val;
+	  val = val === true ? 5 : val === false ? 0 : +val;
+	  return acc + val;
 	}
 
 	function get(id) {
-		return document.getElementById(id);
+	  return document.getElementById(id);
 	}
 
 	// axios.get('http://47.93.50.34:3000/api/getconfig?url=' + location.href.split('#')[0])
@@ -1954,12 +1959,33 @@
 	 * @param {function=} options.onChange 点击tab时，返回对应的index
 	 *
 	 * @example
+	 * #### html
+	 * ```html
+	 * <div class="weui-tab" id="tab">
+	 *     <div class="weui-navbar">
+	 *         <div class="weui-navbar__item">反馈</div>
+	 *         <div class="weui-navbar__item">表单</div>
+	 *         <div class="weui-navbar__item">上传</div>
+	 *         <div class="weui-navbar__item">其它</div>
+	 *     </div>
+	 *     <div class="weui-tab__panel">
+	 *         <div class="weui-tab__content">反馈页</div>
+	 *         <div class="weui-tab__content">表单页</div>
+	 *         <div class="weui-tab__content">上传页</div>
+	 *         <div class="weui-tab__content">其它页</div>
+	 *     </div>
+	 * </div>
+	 * ```
+	 *
+	 * #### js
+	 * ```javascript
 	 * weui.tab('#tab',{
 	 *     defaultIndex: 0,
 	 *     onChange: function(index){
 	 *         console.log(index);
 	 *     }
 	 * });
+	 * ```
 	 */
 	function tab(selector) {
 	    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -2100,8 +2126,6 @@
 	            } else {
 	                return input.checked ? null : 'empty';
 	            }
-	        } else if (!$input.val().length) {
-	            return 'empty';
 	        } else if (reg) {
 	            if (/^REG_/.test(reg)) {
 	                if (!regexp) throw 'RegExp ' + reg + ' is empty.';
@@ -2111,7 +2135,9 @@
 
 	                reg = regexp[reg];
 	            }
-	            return new RegExp(reg).test(val) ? null : 'notMatch';
+	            return new RegExp(reg).test(val) ? null : !$input.val().length ? 'empty' : 'notMatch';
+	        } else if (!$input.val().length) {
+	            return 'empty';
 	        } else {
 	            return null;
 	        }
@@ -2121,19 +2147,6 @@
 	    }
 
 	    return 'empty';
-	}
-	function _showErrorMsg(error) {
-	    if (error) {
-	        var $ele = (0, _util2.default)(error.ele),
-	            msg = error.msg,
-	            tips = $ele.attr(msg + 'Tips') || $ele.attr('tips') || $ele.attr('placeholder');
-	        if (tips) (0, _topTips2.default)(tips);
-
-	        if (error.ele.type == 'checkbox' || error.ele.type == 'radio') return;
-
-	        var cellParent = _findCellParent(error.ele);
-	        if (cellParent) cellParent.classList.add('weui-cell_warn');
-	    }
 	}
 
 	/**
@@ -2204,14 +2217,14 @@
 	    $eles.forEach(function (ele) {
 	        var $form = (0, _util2.default)(ele);
 	        var $requireds = $form.find('[required]');
-	        if (typeof callback != 'function') callback = _showErrorMsg;
+	        if (typeof callback != 'function') callback = showErrorTips;
 
 	        for (var i = 0, len = $requireds.length; i < len; ++i) {
 	            var $required = $requireds.eq(i),
 	                errorMsg = _validate($required, $form, options.regexp),
 	                error = { ele: $required[0], msg: errorMsg };
 	            if (errorMsg) {
-	                if (!callback(error)) _showErrorMsg(error);
+	                if (!callback(error)) showErrorTips(error);
 	                return;
 	            }
 	        }
@@ -2251,21 +2264,60 @@
 
 	            var errorMsg = _validate($this, $form, options.regexp);
 	            if (errorMsg) {
-	                _showErrorMsg({
+	                showErrorTips({
 	                    ele: $this[0],
 	                    msg: errorMsg
 	                });
 	            }
 	        }).on('focus', function () {
-	            var cellParent = _findCellParent(this);
-	            if (cellParent) cellParent.classList.remove('weui-cell_warn');
+	            hideErrorTips(this);
 	        });
 	    });
 
 	    return this;
 	}
 
+	/**
+	 * showErrorTips 显示错误提示
+	 * @param {Object} error 错误数据
+	 * @param {string} error.ele 出错了的dom元素
+	 * @param {string} error.msg 出错了的msg。会根据此`msg`找到对应的`Tips`（比如`msg`是`empty`），那么`ele`上的`emptyTips`就会以`topTips`显示
+	 *
+	 * @example
+	 * weui.form.showErrorTips({
+	 *     ele: document.getElementById("xxxInput")
+	 *     msg: 'empty'
+	 * });
+	 */
+	function showErrorTips(error) {
+	    if (error) {
+	        var $ele = (0, _util2.default)(error.ele),
+	            msg = error.msg,
+	            tips = $ele.attr(msg + 'Tips') || $ele.attr('tips') || $ele.attr('placeholder');
+	        if (tips) (0, _topTips2.default)(tips);
+
+	        if (error.ele.type == 'checkbox' || error.ele.type == 'radio') return;
+
+	        var cellParent = _findCellParent(error.ele);
+	        if (cellParent) cellParent.classList.add('weui-cell_warn');
+	    }
+	}
+
+	/**
+	 * hideErrorTips 隐藏错误提示
+	 * @param {Object} ele dom元素
+	 *
+	 * @example
+	 * weui.form.hideErrorTips(document.getElementById("xxxInput"));
+	 */
+	function hideErrorTips(ele) {
+	    var cellParent = _findCellParent(ele);
+	    if (cellParent) cellParent.classList.remove('weui-cell_warn');
+	}
+
 	exports.default = {
+	    showErrorTips: showErrorTips,
+	    hideErrorTips: hideErrorTips,
 	    validate: validate,
 	    checkIfBlur: checkIfBlur
 	};
