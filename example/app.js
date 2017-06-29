@@ -2,7 +2,7 @@
 import FastClick from 'fastclick';
 import weui from '../src/weui';
 import $ from '../src/util/util';
-import axios from 'axios';
+//import axios from 'axios';
 
 FastClick.attach(document.body);
 
@@ -86,83 +86,83 @@ function get(id) {
 	return document.getElementById(id)
 }
 
-axios.get('http://47.93.50.34:3000/api/getconfig?url=' + location.href.split('#')[0])
-	.then(function(response) {
-		var data = response.data;
-		data.debug = true
-		data.jsApiList = ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
-		wx.config(data);
-
-		wx.error(function(res) {
-			console.log(res)
-		});
-	})
-	.catch(function(error) {
-		console.log(error);
-	});
-
-wx.onMenuShareTimeline({
-	title: 'Hahah', // 分享标题
-	link: 'wsau.oss-cn-shanghai.aliyuncs.com', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-	imgUrl: 'http://img5.imgtn.bdimg.com/it/u=2939280666,784546577&fm=26&gp=0.jpg', // 分享图标
-	success: function() {
-		// 用户确认分享后执行的回调函数
-	},
-	cancel: function() {
-		// 用户取消分享后执行的回调函数
-	}
-});
-
-wx.onMenuShareAppMessage({
-	title: '', // 分享标题
-	desc: '', // 分享描述
-	link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-	imgUrl: '', // 分享图标
-	type: '', // 分享类型,music、video或link，不填默认为link
-	dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-	success: function() {
-		// 用户确认分享后执行的回调函数
-	},
-	cancel: function() {
-		// 用户取消分享后执行的回调函数
-	}
-});
-
-wx.onMenuShareQQ({
-	title: '', // 分享标题
-	desc: '', // 分享描述
-	link: '', // 分享链接
-	imgUrl: '', // 分享图标
-	success: function() {
-		// 用户确认分享后执行的回调函数
-	},
-	cancel: function() {
-		// 用户取消分享后执行的回调函数
-	}
-});
-
-wx.onMenuShareWeibo({
-	title: '', // 分享标题
-	desc: '', // 分享描述
-	link: '', // 分享链接
-	imgUrl: '', // 分享图标
-	success: function() {
-		// 用户确认分享后执行的回调函数
-	},
-	cancel: function() {
-		// 用户取消分享后执行的回调函数
-	}
-});
-
-wx.onMenuShareQZone({
-	title: '', // 分享标题
-	desc: '', // 分享描述
-	link: '', // 分享链接
-	imgUrl: '', // 分享图标
-	success: function() {
-		// 用户确认分享后执行的回调函数
-	},
-	cancel: function() {
-		// 用户取消分享后执行的回调函数
-	}
-});
+// axios.get('http://47.93.50.34:3000/api/getconfig?url=' + location.href.split('#')[0])
+// 	.then(function(response) {
+// 		var data = response.data;
+// 		data.debug = true
+// 		data.jsApiList = ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone']
+// 		wx.config(data);
+//
+// 		wx.error(function(res) {
+// 			console.log(res)
+// 		});
+// 	})
+// 	.catch(function(error) {
+// 		console.log(error);
+// 	});
+//
+// wx.onMenuShareTimeline({
+// 	title: 'Hahah', // 分享标题
+// 	link: 'wsau.oss-cn-shanghai.aliyuncs.com', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+// 	imgUrl: 'http://img5.imgtn.bdimg.com/it/u=2939280666,784546577&fm=26&gp=0.jpg', // 分享图标
+// 	success: function() {
+// 		// 用户确认分享后执行的回调函数
+// 	},
+// 	cancel: function() {
+// 		// 用户取消分享后执行的回调函数
+// 	}
+// });
+//
+// wx.onMenuShareAppMessage({
+// 	title: '', // 分享标题
+// 	desc: '', // 分享描述
+// 	link: '', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+// 	imgUrl: '', // 分享图标
+// 	type: '', // 分享类型,music、video或link，不填默认为link
+// 	dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+// 	success: function() {
+// 		// 用户确认分享后执行的回调函数
+// 	},
+// 	cancel: function() {
+// 		// 用户取消分享后执行的回调函数
+// 	}
+// });
+//
+// wx.onMenuShareQQ({
+// 	title: '', // 分享标题
+// 	desc: '', // 分享描述
+// 	link: '', // 分享链接
+// 	imgUrl: '', // 分享图标
+// 	success: function() {
+// 		// 用户确认分享后执行的回调函数
+// 	},
+// 	cancel: function() {
+// 		// 用户取消分享后执行的回调函数
+// 	}
+// });
+//
+// wx.onMenuShareWeibo({
+// 	title: '', // 分享标题
+// 	desc: '', // 分享描述
+// 	link: '', // 分享链接
+// 	imgUrl: '', // 分享图标
+// 	success: function() {
+// 		// 用户确认分享后执行的回调函数
+// 	},
+// 	cancel: function() {
+// 		// 用户取消分享后执行的回调函数
+// 	}
+// });
+//
+// wx.onMenuShareQZone({
+// 	title: '', // 分享标题
+// 	desc: '', // 分享描述
+// 	link: '', // 分享链接
+// 	imgUrl: '', // 分享图标
+// 	success: function() {
+// 		// 用户确认分享后执行的回调函数
+// 	},
+// 	cancel: function() {
+// 		// 用户取消分享后执行的回调函数
+// 	}
+// });
